@@ -16,16 +16,15 @@ public class PTBacHai {
 		double b = input.nextDouble();
 		System.out.println("Please input c :");
 		double c = input.nextDouble();
-		if ((a == 0) && (b != 0) && (c != 0)) {
-			System.out.println("PT co nghiem don : " + -b / c);
-		}
-		if ((a == 0) && (c == 0)) {
-			System.out.println("PT co vo so nghiem");
-		}
-		if ((a == 0) && (b == 0) && (c != 0)) {
-			System.out.println("PT vo nghiem");
-		}
-		if (a != 0) {
+
+		if (a == 0) {
+			if ((b != 0) && (c != 0)) {
+				System.out.println("PT co nghiem don : " + -b / c);
+			} else if (c == 0) {
+				System.out.println("PT co vo so nghiem");
+			} else
+				System.out.println("PT vo nghiem");
+		} else {
 			double delta = b * b - 4 * a * c;
 			if (delta < 0) {
 				System.out.println("PT vo nghiem");
