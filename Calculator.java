@@ -4,48 +4,59 @@ import java.util.Scanner;
 
 public class Calculator {
 
-	public static double tinhTong(double x, double y) {
-		double tong = 0;
-		tong = x + y;
-		return tong;
+	public static double add(double x, double y) {
+		double answer = 0;
+		answer = x + y;
+		return answer;
 	}
 
-	public static double tinhHieu(double x, double y) {
-		double tong = 0;
-		tong = x - y;
-		return tong;
+	public static double subtract(double x, double y) {
+		double answer = 0;
+		answer = x - y;
+		return answer;
 	}
 
-	public static double tinhTich(double x, double y) {
-		double tich = 0;
-		tich = x * y;
-		return tich;
+	public static double multiply(double x, double y) {
+		double answer = 0;
+		answer = x * y;
+		return answer;
 	}
 
-	public static double tinhThuong(double x, double y) {
-		double thuong = 0;
+	public static double divide(double x, double y) {
+		double answer = 0;
 		if (y == 0) {
-			System.out.println("Phep chia khong hop le");
+			System.out.println("Invalid division");
+			return -1;
 		} else
-			thuong = x / y;
-		return thuong;
+			answer = x / y;
+		return answer;
 	}
 
 	public static void main(String[] args) {
+		double answer = 0;
 		Scanner input = new Scanner(System.in);
 		System.out.println("please enter x :");
 		double x = input.nextDouble();
+
+		char operator = input.next().charAt(0);
+
 		System.out.println("Please enter y :");
 		double y = input.nextDouble();
-
-		System.out.println("Tong cua 2 so la " + tinhTong(x, y));
-		System.out.println("Hieu cua 2 so la " + tinhHieu(x, y));
-		System.out.println("Tich cua 2 so la " + tinhTich(x, y));
-		if (y != 0) {
-			System.out.println("Thuong cua 2 so la " + tinhThuong(x, y));
+		switch (operator) {
+		case '+':
+			answer = add(x, y);
+			break;
+		case '-':
+			answer = subtract(x, y);
+			break;
+		case '*':
+			answer = multiply(x, y);
+			break;
+		case '/':
+			answer = divide(x, y);
+			break;
 		}
-		else 
-			System.out.println("Phep chia khong hop le hehe");
-	}
 
+		System.out.println(answer);
+	}
 }
